@@ -137,13 +137,13 @@ Cloth_rental_system/
      ```
 
 7. **Default admin credentials**
-   - Email: admin@example.com
+   - Email: admin@admin.com
    - Password: admin123
    - (Change these after first login)
 
 ## Security Notes
 
-🔒 **Important:** This project uses `.gitignore` to protect sensitive files:
+**Important:** This project uses `.gitignore` to protect sensitive files:
 
 - `config/db.php` - Contains database credentials
 - `config/esewa-config.php` - Contains payment gateway keys
