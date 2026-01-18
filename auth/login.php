@@ -77,10 +77,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p class="auth-footer">
                 Don't have an account? <a href="register.php">Register here</a>
             </p>
-            
-            <p class="auth-footer">
-                <small>Demo Admin: admin@clothrental.com / admin123</small>
-            </p>
         </div>
     </div>
 </body>
