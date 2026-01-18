@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#e9ecef"/>
+  
+  <g transform="translate(200, 70)">
+    <!-- Shoulders -->
+    <rect x="-70" y="30" width="140" height="15" fill="#1a1a1a" rx="3"/>
+    
+    <!-- Jacket lapels -->
+    <path d="M -60 45 L -35 45 L -20 120 L -60 120 Z" fill="#000"/>
+    <path d="M 60 45 L 35 45 L 20 120 L 60 120 Z" fill="#000"/>
+    
+    <!-- White shirt front -->
+    <rect x="-20" y="45" width="40" height="110" fill="#fff"/>
+    
+    <!-- Bow tie -->
+    <path d="M -15 40 L -8 45 L -15 50 Z" fill="#000"/>
+    <path d="M 15 40 L 8 45 L 15 50 Z" fill="#000"/>
+    <rect x="-8" y="42" width="16" height="6" fill="#000"/>
+    
+    <!-- Shirt buttons -->
+    <circle cx="0" cy="60" r="2.5" fill="#333"/>
+    <circle cx="0" cy="75" r="2.5" fill="#333"/>
+    <circle cx="0" cy="90" r="2.5" fill="#333"/>
+    <circle cx="0" cy="105" r="2.5" fill="#333"/>
+    
+    <!-- Jacket buttons -->
+    <circle cx="-40" cy="100" r="3" fill="#ffd700"/>
+    <circle cx="40" cy="100" r="3" fill="#ffd700"/>
+    
+    <!-- Jacket body -->
+    <rect x="-60" y="120" width="50" height="110" fill="#000"/>
+    <rect x="10" y="120" width="50" height="110" fill="#000"/>
+    <rect x="-10" y="120" width="20" height="110" fill="#fff"/>
+    
+    <!-- Pants -->
+    <rect x="-50" y="230" width="45" height="50" fill="#000"/>
+    <rect x="5" y="230" width="45" height="50" fill="#000"/>
+    
+    <!-- Pocket square -->
+    <rect x="-50" y="55" width="12" height="12" fill="#fff" opacity="0.9"/>
+  </g>
+  
+  <text x="200" y="360" font-family="Arial, sans-serif" font-size="20" fill="#212529" text-anchor="middle" font-weight="bold">Black Tuxedo</text>
+  <text x="200" y="385" font-family="Arial, sans-serif" font-size="16" fill="#495057" text-anchor="middle">₹800/day</text>
+</svg>
