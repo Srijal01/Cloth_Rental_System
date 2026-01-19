@@ -1,17 +1,35 @@
+# ============================================
+# CLOTH RENTAL SYSTEM - Apache Configuration
+# ============================================
+
 # Enable Rewrite Engine
 RewriteEngine On
+RewriteBase /Cloth_rental_system/
+
+# Redirect 404 errors to custom page
+ErrorDocument 404 /Cloth_rental_system/404.php
 
 # Prevent directory browsing
 Options -Indexes
 
+# ============================================
+# SECURITY - Protect Sensitive Files
+# ============================================
+
 # Protect config files
-<FilesMatch "^(db\.php|session\.php)$">
+<FilesMatch "^(db\.php|esewa-config\.php|session\.php|\.env)$">
     Order allow,deny
     Deny from all
 </FilesMatch>
 
-# Protect setup.sql
+# Protect database files
 <FilesMatch "setup\.sql$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Prevent access to hidden files (including .git)
+<FilesMatch "^\.">
     Order allow,deny
     Deny from all
 </FilesMatch>
@@ -19,34 +37,68 @@ Options -Indexes
 # Set default charset
 AddDefaultCharset UTF-8
 
-# Enable compression
+# ============================================
+# COMPRESSION
+# ============================================
+
+# Enable compression for better performance
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 </IfModule>
+
+# ============================================
+# CACHING
+# ============================================
 
 # Set cache control for static files
 <IfModule mod_expires.c>
     ExpiresActive On
+    
+    # Images
     ExpiresByType image/jpg "access plus 1 year"
     ExpiresByType image/jpeg "access plus 1 year"
     ExpiresByType image/gif "access plus 1 year"
     ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # CSS and JavaScript
     ExpiresByType text/css "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
+    
+    # Fonts
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
 </IfModule>
+
+# ============================================
+# SECURITY HEADERS
+# ============================================
 
 # Protect from common attacks
 <IfModule mod_headers.c>
     Header set X-Content-Type-Options "nosniff"
     Header set X-Frame-Options "SAMEORIGIN"
     Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
-# Prevent access to hidden files
-<FilesMatch "^\.">
-    Order allow,deny
-    Deny from all
-</FilesMatch>
+# ============================================
+# PHP CONFIGURATION
+# ============================================
+
+<IfModule mod_php7.c>
+    # Increase upload limits for product images
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+    php_value max_execution_time 300
+    
+    # Hide PHP version for security
+    php_flag expose_php Off
+    
+    # Session security
+    php_value session.cookie_httponly 1
+</IfModule>
 
 # PHP security settings
 <IfModule mod_php7.c>

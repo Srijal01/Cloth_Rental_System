@@ -1,17 +1,36 @@
 <?php
+/**
+ * Homepage - Product Catalog
+ * 
+ * Displays all available products with category filtering
+ * Users can browse and view products by category
+ * 
+ * @package ClothRentalSystem
+ * @author Your Name
+ */
+
 session_start();
 require_once 'config/db.php';
 
-// Get category filter
+// ============================================
+// GET CATEGORY FILTER FROM URL
+// ============================================
 $category = isset($_GET['category']) ? mysqli_real_escape_string($conn, $_GET['category']) : '';
 
-// Build query
+// ============================================
+// BUILD PRODUCT QUERY
+// ============================================
 $sql = "SELECT * FROM products WHERE available = 1";
+
+// Add category filter if specified
 if ($category) {
     $sql .= " AND category = '$category'";
 }
+
+// Sort by newest first
 $sql .= " ORDER BY created_at DESC";
 
+// Execute query
 $result = mysqli_query($conn, $sql);
 ?>
 
@@ -20,10 +39,17 @@ $result = mysqli_query($conn, $sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloth Rental System - Home</title>
+    <meta name="description" content="Rent beautiful clothes for any occasion. Browse our collection of ethnic wear, party outfits, formal attire and more.">
+    <meta name="keywords" content="cloth rental, dress rental, clothing rental system, rent clothes online">
+    <title>Cloth Rental System - Rent Beautiful Clothes for Every Occasion</title>
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css?v=<?php echo time(); ?>">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
-<body>
+<body class="fade-in">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">

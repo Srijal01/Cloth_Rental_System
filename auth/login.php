@@ -1,13 +1,31 @@
 <?php
+/**
+ * User Login Page
+ * 
+ * Handles user authentication and session management
+ * Redirects to appropriate dashboard based on user role
+ * 
+ * @package ClothRentalSystem
+ * @subpackage Authentication
+ */
+
 session_start();
 require_once '../config/db.php';
 
+// ============================================
+// INITIALIZE VARIABLES
+// ============================================
 $error = '';
 
+// ============================================
+// PROCESS LOGIN FORM SUBMISSION
+// ============================================
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Sanitize and validate input
     $email = mysqli_real_escape_string($conn, trim($_POST['email']));
     $password = $_POST['password'];
     
+    // Check if fields are empty
     if (empty($email) || empty($password)) {
         $error = "All fields are required!";
     } else {

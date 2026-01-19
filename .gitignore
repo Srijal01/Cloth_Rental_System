@@ -1,27 +1,126 @@
-# Environment configuration with sensitive keys
+# ============================================
+# CLOTH RENTAL SYSTEM - Git Ignore File
+# ============================================
+# This file specifies which files should not be tracked by Git
+# Prevents sensitive data and unnecessary files from being committed
+
+# ============================================
+# SENSITIVE CONFIGURATION FILES
+# ============================================
+# Never commit these files - they contain passwords and API keys
 config/esewa-config.php
-.env
-
-# Database configuration
 config/db.php
+.env
+.env.local
+.env.*.local
 
-# IDE and editor files
+# ============================================
+# IDE AND EDITOR FILES
+# ============================================
+# Visual Studio Code
 .vscode/
+*.code-workspace
+
+# PhpStorm / IntelliJ IDEA
 .idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
 *.swp
 *.swo
 *~
 
-# OS files
-.DS_Store
-Thumbs.db
-desktop.ini
+# Atom
+.atom/
 
-# Temporary files
+# ============================================
+# OPERATING SYSTEM FILES
+# ============================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================
+# LOGS AND TEMPORARY FILES
+# ============================================
 *.log
 *.tmp
+*.temp
 *.cache
+*.bak
+*.backup
+error_log
+debug.log
+php_errors.log
 
-# User uploaded files (optional - uncomment if you don't want to track uploads)
+# ============================================
+# DEPENDENCY DIRECTORIES
+# ============================================
+node_modules/
+vendor/
+bower_components/
+
+# ============================================
+# BUILD AND COMPILED FILES
+# ============================================
+dist/
+build/
+*.min.js
+*.min.css
+
+# ============================================
+# USER UPLOADS (OPTIONAL)
+# ============================================
+# Uncomment these lines if you don't want to track user uploads
 # assets/images/uploads/
 # uploads/
+# temp/
+
+# ============================================
+# DATABASE FILES
+# ============================================
+*.sql.gz
+*.sql.bak
+dump.sql
+
+# ============================================
+# PACKAGE MANAGER FILES
+# ============================================
+composer.phar
+composer.lock
+package-lock.json
+yarn.lock
+
+# ============================================
+# SECURITY AND TESTING
+# ============================================
+.phpunit.result.cache
+phpunit.xml
+.phpcs-cache
+security.txt
+
+# ============================================
+# MISCELLANEOUS
+# ============================================
+.htaccess.backup
+TODO.md
+NOTES.md
